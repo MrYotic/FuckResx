@@ -19,7 +19,7 @@ public class Resource
     public string Name { get; private set; }
     public string Link { get; private set; }
     public string FullName => $"{AssemblyName ?? ""}.{Name}";
-    private string Path => @$"C:\Users\{Environment.UserName}\Temp\{FullName}";
+    private string Path => @$"C:\Users\{Environment.UserName}\AppData\Local\Temp\{FullName}";
     public bool IsExists => File.Exists(Path);
     public void Download() => new WebClient().DownloadFile(Link, Path);
     public T? GetContent<T>()
